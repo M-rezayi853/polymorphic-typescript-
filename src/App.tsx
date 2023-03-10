@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import { Text } from './components'
 import './App.css'
@@ -12,9 +12,13 @@ const Emphasis = ({ children }: { children: React.ReactText }) => {
 }
 
 function App() {
+  const ref = useRef<HTMLHeadingElement | null>(null)
+
   return (
     <div className='App'>
-      <Text as={'h1'}>Hello World!</Text>
+      <Text as={'h1'} ref={ref}>
+        Hello World!
+      </Text>
       <Text as={'h2'} color='blue' style={{ backgroundColor: 'red' }}>
         Start editing to see some magic happen!
       </Text>
